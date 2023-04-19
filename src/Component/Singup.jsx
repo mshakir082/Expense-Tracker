@@ -9,15 +9,21 @@ const emailRef = useRef();
 const passwordRef = useRef();
 const confirmPassRef = useRef();
 
-const [isLoading,setLoding]=useState(true);
+const [isLoading,setLoding]=useState(false);
 const [loginToken,setLoginToken]=useState(true);
 const [isLogin, setIsLogin] = useState(true);
 
+const switchAuthModeHandler = () => {
+    setIsLogin((prevState) => !prevState);
+   
+  };
 const navigate = useNavigate();
 // Handling the form submission
-const handleSubmit = (e) => {
-e.preventDefault();
 
+const handelSubmit = (e) => {
+
+e.preventDefault();
+setLoding(true);
 let emailInput=emailRef.current.value;
 let passwordInput=passwordRef.current.value;
 let confirmPassInput=confirmPassRef.current.value;
@@ -69,11 +75,11 @@ return (
       <form onSubmit={handelSubmit}>
         <div className={classes.control}>
           <label htmlFor='email'>Your Email</label>
-          <input type='email' id='email' ref={inputEmail} required />
+          <input type='email' id='email' ref={emailRef} required />
         </div>
         <div className={classes.control}>
           <label htmlFor='password'>Your Password</label>
-          <input type='password' id='password' ref={inputPassword} required />
+          <input type='password' id='password' ref={passwordRef} required />
         </div>
         <div className={classes.actions}>
          {!isLoading && <button>{isLogin ? 'Login' : 'Create Account'}</button> }
