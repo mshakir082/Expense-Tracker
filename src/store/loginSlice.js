@@ -15,7 +15,7 @@ const loginSlice = createSlice({
             state.isLoggedIn=false;
             localStorage.removeItem('idToken')
         }
-    }
+    }   
 });
 
 export const loginActions = loginSlice.actions;

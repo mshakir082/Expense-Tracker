@@ -41,7 +41,7 @@ const Premium = () => {
   }
 
   return (
-    <React.Fragment>
+    <>
       {totalAmount > 10000 && (
         <div className={classes.activate}>
           {!activatePremium && (
@@ -59,7 +59,7 @@ const Premium = () => {
           )}
         </div>
       )}
-    </React.Fragment>
+    </>
   );
 };
 
